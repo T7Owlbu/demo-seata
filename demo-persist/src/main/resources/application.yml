@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: demo-persist
+  datasource:
+    url: jdbc:mysql://192.168.10.199:3306/test_chj?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF8&rewriteBatchedStatements=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        group: SEATA_GROUP
+server:
+  port: 30000
+  servlet:
+    context-path: /persist
+seata:
+  registry:
+    # support: nacos, eureka, redis, zk, consul, etcd3, sofa
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      cluster: default
+  config:
+    # support: nacos, consul, apollo, zk, etcd3
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+  tx-service-group: demo_seata_tx_group

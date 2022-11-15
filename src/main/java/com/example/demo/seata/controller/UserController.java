@@ -1,0 +1,14 @@
+package com.example.demo.seata.controller;
+
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@Validated
+@RequestMapping("/user")
+@RestController
+public class UserController {
+
+
+
+}
